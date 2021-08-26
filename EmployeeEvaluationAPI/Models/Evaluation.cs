@@ -12,15 +12,19 @@ namespace EmployeeEvaluationAPI.Models
         [Key]
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+        [Column("id")]
+        public int EvaluationID { get; set; }
 
-        //done by
-
-
-        //done for
         [Required]
-        public int Value { get; set; }
+        [ForeignKey("done_by")]
+        public Employee By { get; set; }
 
-        
+        [Required]
+        [ForeignKey("done_for")]
+        public Employee For { get; set; }
+
+        [Required]
+        [Column("value")]
+        public int Value { get; set; }
     }
 }
