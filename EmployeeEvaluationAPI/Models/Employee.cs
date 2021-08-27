@@ -10,14 +10,14 @@ namespace EmployeeEvaluationAPI.Models
     [Table("Employee")]
     public class Employee
     {
+
         [Key]
-        [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
         public int EmployeeID { get; set; }
 
-        [StringLength(50)]
         [Required]
+        [StringLength(50)]
         [Column("name")]
         public String Name { get; set; }
 
@@ -25,9 +25,11 @@ namespace EmployeeEvaluationAPI.Models
         [Column("age")]
         public int Age { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [Required]
         [Column("rating")]
-        public double Rating { get; set; }
+        //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public double Rating{get; set; }
+
 
     }
 }

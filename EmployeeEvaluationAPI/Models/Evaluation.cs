@@ -16,12 +16,16 @@ namespace EmployeeEvaluationAPI.Models
         public int EvaluationID { get; set; }
 
         [Required]
-        [ForeignKey("done_by")]
-        public Employee By { get; set; }
+        [Column("done_by")]
+        public int ByEmployeeID { get; set; }
+        [ForeignKey("ByEmployeeID")]
+        public virtual Employee ByEmployee { get; set; }
 
         [Required]
-        [ForeignKey("done_for")]
-        public Employee For { get; set; }
+        [Column("done_for")]
+        public int ForEmployeeID { get; set; }
+        [ForeignKey("ForEmployeeID")]
+        public virtual Employee ForEmployee { get; set; }
 
         [Required]
         [Column("value")]
